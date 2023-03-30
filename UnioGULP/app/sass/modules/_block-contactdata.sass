@@ -1,0 +1,33 @@
+.contact__data
+  position: relative
+  margin-bottom: 1.6rem
+
+.contact-data__item
+  margin-bottom: 2.4rem
+  i
+    font-size: 1.6rem
+    color: $text-light
+  p
+    font-size: 1.4rem
+    color: $text-light-mute
+    margin-top: .4rem
+    a
+      position: relative
+      display: inline-block
+      color: $text-light-mute
+      transition: all .3s ease-in-out
+      .no-touch &:hover
+        color: $accent-color
+
+  ul
+    font: normal 400 1.4rem/1.7 $default-font
+    margin-top: .4rem
+    a
+      position: relative
+      display: inline-block
+      color: $text-light-mute
+      transition: all .3s ease-in-out
+    li
+      .no-touch &:hover
+        a
+          color: $accent-color

@@ -1,0 +1,133 @@
+.inner__content,
+.inner__media,
+.blocks-container
+  transition: all $animation-duration - 0.2s ease-in-out
+
+.inner
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  padding-top: 80px
+  background-color: $base-color
+  overflow-y: auto
+  opacity: 0
+  visibility: hidden
+  &.transparent
+    background-color: transparent
+  &.animate-in
+    opacity: 1
+    visibility: visible
+    .blocks-container
+      .content-block
+        animation: $animation-duration ease-in-out $animation-delay + 0.5s 1 both fadeIn
+    .media-container
+      &::before
+        animation: 1s ease-in-out 0s 1 both blockMove
+      .image, .map, .works__gallery
+        animation: 1s ease-in-out 0s 1 both itemsOpacityReverse
+  &.animate-out
+    .inner__content,
+    .inner__media
+      opacity: 0
+      visibility: hidden
+  &.popup-is-visible
+    .inner__media
+      opacity: 0
+      visibility: hidden
+    .blocks-container
+      opacity: 0
+  +MQ(XL)
+    padding-top: 0
+    &.popup-is-visible
+      .inner__media
+        opacity: 1
+        visibility: visible
+      .blocks-container
+        opacity: 0
+
+.inner__content,
+.inner__media
+  position: relative
+  +MQ(XL)
+    height: 100%
+    min-height: 600px
+
+.blocks-container
+  padding: 100px 0
+  +MQ(XL)
+    position: absolute
+    left: 80px
+    +center(y)
+    width: calc(100% - 80px)
+    padding: 0
+  +MQ(XXL)
+    left: 100px
+    width: calc(100% - 100px)
+
+.media-container
+  position: relative
+  overflow: hidden
+  height: 100vh
+  min-height: 600px
+  &::before
+    content: ""
+    display: block
+    +position(absolute, 0 null null 0)
+    width: 100%
+    height: 100%
+    background-color: shade($base-color, 10%)
+    transition: transform $animation-duration - .5s ease-in-out
+    z-index: 1
+  +MQ(XL)
+    height: 100%
+
+.portfolio
+  .media-container
+    height: auto
+    +MQ(M)
+      height: auto
+    +MQ(L)
+      height: 100%
+
+.content-block
+  position: relative
+  width: 100%
+  padding: 0 3.3rem
+  margin-bottom: 4rem
+  &:last-of-type
+    margin-bottom: 0
+  &.grid-block
+    padding: 0 calc(3.3rem - 15px)
+  +MQ(XL)
+    padding: 0 8rem
+    &.grid-block
+      padding: 0 calc(8rem - 15px)
+    &:last-of-type
+      margin-bottom: 0
+  +MQ(XXL)
+    padding: 0 10rem
+    &.grid-block
+      padding: 0 calc(10rem - 15px)
+
+.image
+  position: relative
+  height: 100vh
+  min-height: 600px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  +MQ(XL)
+    height: 100%
+
+.image-caption
+  +position(absolute, null null 0 0)
+  width: 100%
+  padding: 2.4rem
+
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translate3d(0, 50px, 0)
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)

@@ -1,0 +1,73 @@
+.socials
+  ul
+    display: block
+    position: relative
+    width: 100%
+    height: auto
+    padding: 0 3.3rem
+    text-align: center
+    li
+      display: inline-block
+      line-height: 1
+      margin-right: 2.4rem
+      &:last-of-type
+        margin-right: 0
+      a
+        font: normal 400 1.2rem/0.8 $title-font
+        text-transform: uppercase
+        letter-spacing: 0.1rem
+        color: $text-light
+  +MQ(XL)
+    ul
+      padding: 0
+      text-align: center
+      li
+        display: block
+        margin-right: 0
+        margin-bottom: 2.4rem
+        &:last-of-type
+          margin-bottom: 0
+        .no-touch &:hover
+          a
+            color: $accent-color
+  +MQ(XXL)
+    ul
+      li
+        margin-bottom: 3.3rem
+        a
+          font-size: 1.4rem
+
+.socials-mobile
+  display: block
+  position: relative
+  width: 100%
+  padding: 3.3rem 0
+  +MQ(XL)
+    display: none
+
+.socials-desktop
+  display: none
+  +MQ(XL)
+    display: block
+    +position(fixed, null null 3.3rem 0)
+    width: 80px
+    margin-bottom: 0
+    z-index: 11
+  +MQ(XXL)
+    width: 100px
+
+.socials-absolute
+  +position(absolute, null null 3.3rem 0)
+  margin-bottom: 0
+  +MQ(XL)
+    width: auto
+    height: auto
+    +position(fixed, 3.3rem 3.3rem auto auto)
+    padding: 0
+    ul
+      li
+        display: inline-block
+        margin-bottom: 0
+        margin-right: 2.4rem
+        &:last-of-type
+          margin-right: 0

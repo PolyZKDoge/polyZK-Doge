@@ -1,0 +1,115 @@
+.works__gallery
+  position: relative
+
+.my-gallery__item
+  display: block
+  position: relative
+  margin: 0
+  padding: 0
+  overflow: hidden
+  cursor: pointer
+  +MQ(XL)
+    height: 50vh
+    img
+      width: auto
+      height: 50vh
+    .no-touch &:hover
+      .my-gallery__description
+        opacity: 1
+        transform: translateY(0)
+
+.my-gallery__link
+  position: relative
+  float: left
+  width: 100%
+  height: 100%
+  overflow: hidden
+  text-align: center
+  .picture
+    +position(absolute, 0 null null 0)
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    transition: background-position .5s
+
+.my-gallery__image
+  opacity: 1
+  +MQ(XL)
+    opacity: 0
+
+.my-gallery__description
+  +position(absolute, null null 3.3rem 3.3rem)
+  width: calc(100% - 6.6rem)
+  height: auto
+  padding: 2.2rem 2.4rem 2rem
+  background-color: $white
+  z-index: 1
+  h3
+    display: block
+    color: $text-dark
+    small
+      display: block
+      color: tint($text-dark, 38%)
+  p
+    display: none
+  +MQ(XL)
+    opacity: 0
+    transform: translateY(30px)
+    transition: opacity .5s, transform .5s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+
+.pswp__caption__center
+  h3
+    font: normal 500 2.4rem/1.2 $title-font
+    text-transform: uppercase
+    margin-bottom: 1.8rem
+    color: $text-light
+    transform: translateY(0)
+  small
+    display: block
+    font: normal 400 1.4rem/1.7 $title-font
+    text-transform: uppercase
+    color: $text-light-mute
+    transform: translateY(0)
+  p
+    font: normal 400 1.6rem/1.7 $default-font
+    color: $text-light-mute
+
+.pswp__counter
+  font-family: $default-font
+
+.pswp__button--close
+  opacity: 1
+
+.pswp__button--arrow--left::before, .pswp__button--arrow--right::before
+  width: 44px
+  height: 44px
+
+.pswp__button--arrow--left:before
+  left: 0
+  background-position: -132px -44px
+
+.pswp__button--arrow--right:before
+  right: 0
+  background-position: -88px -44px
+
+.pswp__caption__center
+  h3
+    color: $text-light
+    small
+      color: $text-light-base
+  p
+    color: $text-light-mute
+
+.pswp__bg
+  background: shade($base-color, 20%)
+
+.pswp__caption, .pswp__top-bar
+  background-color: rgba(0,0,0,.3)
+
+.pswp__button--close
+  position: relative
+  background-color: $white
+  &:active
+    opacity: 1
